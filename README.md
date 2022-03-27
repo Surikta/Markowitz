@@ -6,7 +6,7 @@ Portfolio optimization using pyhton
 
 This basic portfolio optimization uses yfinance to extract the financial data.
 
-Its objective is to return a distribution of new weights for a portfolio of firms in the stock market. It can be used with ETFs but certain bond ETFs have such a little variance (close to the risk free rate as it is the case for SHY ETF) or can be the case that index ETFs are higly correlated and the distribution goes all to a single asset.
+Its objective is to return a distribution of new weights for a portfolio of firms in the stock market. It can be used with ETFs but certain bond ETFs have such a little variance (close to the risk free rate as it is the case for SHY ETF) or can be the case that index ETFs are higly correlated with each other and the distribution goes all to a single asset.
 
 Markowitz.py will create a portfolio class, let's create a portfolio with AAPL, MSFT, AMZN, GOOG, NVDA
 
@@ -35,7 +35,7 @@ GOOG
 NVDA
 ```
 
-After the statistic are done we can analize the best portfolio if the we have a risk free rate (treasuries) in 1%
+After the statistic are done we can analize the best portfolio in the case of a risk free rate (treasuries) in 1%
 
 ```python
 portfolio.plot_efficient(1)
@@ -49,6 +49,8 @@ NVDA: 15.78
 
 
 In this case, MSFT has a high portfolio allocation because it has the low variance and nice return. The model can be restricted to a maximum (and/or minimum) allocation and needs to be modify in the code. No short position or leverage is considered either.
+
+In this case it is used a Dirichlet distribution and the allocation is in the interval (0, 1)
 
 Let´s try with 0% risk free rate:
 
